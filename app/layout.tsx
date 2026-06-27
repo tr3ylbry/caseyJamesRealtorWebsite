@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/casey-james-hero-placeholder.png",
-        width: 1680,
-        height: 945,
-        alt: "Contemporary Southern Arizona home at dusk",
+        url: "/homepage-hero.jpg",
+        width: 2048,
+        height: 1365,
+        alt: "Casey James real estate marketing hero image",
       },
     ],
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/casey-james-hero-placeholder.png"],
+    images: ["/homepage-hero.jpg"],
   },
 };
 

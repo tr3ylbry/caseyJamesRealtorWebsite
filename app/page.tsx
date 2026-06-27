@@ -4,6 +4,7 @@ import { ArrowIcon } from "@/components/icons";
 import { MarketingServices } from "@/components/marketing-services";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
+import { siteConfig } from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -11,7 +12,7 @@ export default function HomePage() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-media" aria-hidden="true">
           <Image
-            src="/casey-james-hero-placeholder.png"
+            src="/homepage-hero.jpg"
             alt=""
             fill
             priority
@@ -32,20 +33,37 @@ export default function HomePage() {
         </div>
         <div className="hero-footer shell">
           <span>Serving Tucson, Phoenix &amp; Southern Arizona</span>
-          <a href="#why-casey">Discover the difference <span aria-hidden="true">↓</span></a>
+          <a href="#meet-casey">Discover the difference <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
-      <section className="manifesto section" id="why-casey">
-        <div className="shell manifesto-grid">
-          <div>
-            <p className="eyebrow">A different standard</p>
-            <p className="manifesto-quote">Your home deserves more than a sign in the yard and a listing in a database.</p>
+      <section className="meet section" id="meet-casey" aria-labelledby="meet-title">
+        <div className="shell meet-grid">
+          <div className="portrait-shell">
+            <div className="portrait-outer-frame" aria-hidden="true" />
+            <div className="portrait-inner-frame">
+              <Image
+                src="/casey-james-headshot.png"
+                alt="Casey James, Marketing-First REALTOR"
+                width={912}
+                height={1368}
+                sizes="(max-width: 900px) 100vw, 44vw"
+                className="meet-image"
+              />
+            </div>
           </div>
-          <div className="manifesto-copy">
-            <p>Selling well starts before your home reaches the market. It takes clear positioning, exceptional presentation, and a campaign built around the right buyer.</p>
-            <p>Casey brings real estate strategy and professional media under one focused plan—so every detail works together to make your home impossible to overlook.</p>
-            <a className="text-link" href="#marketing">See the marketing approach <ArrowIcon /></a>
+          <div className="meet-content">
+            <p className="eyebrow">Meet Casey</p>
+            <h2 id="meet-title">Your home deserves more than a sign in the yard.</h2>
+            <p>Selling well takes more than a listing in a database and waiting for buyers to notice. Casey combines REALTOR® guidance with premium media strategy to help sellers prepare, position, and launch their homes with intention.</p>
+            <p>Through his connection to <a className="inline-link" href={siteConfig.luxePartnerUrl} target="_blank" rel="noopener noreferrer" aria-label="Visit Luxe Realty Photography">Luxe Realty Photography</a>, the visual plan starts early — not after the listing is already live — so photography, video, drone, 3D tours, and digital campaigns support one clear selling strategy.</p>
+            <p>Every detail is planned to work together, from pricing and preparation to presentation, launch, and promotion.</p>
+            <div className="credibility-list" aria-label="Casey James credibility points">
+              <span><small>01</small>Strategic listing preparation</span>
+              <span><small>02</small>Professional media from day one</span>
+              <span><small>03</small>Tucson, Phoenix &amp; Southern Arizona reach</span>
+            </div>
+            <a className="text-link" href="#contact">Start a conversation <ArrowIcon /></a>
           </div>
         </div>
       </section>
@@ -78,7 +96,7 @@ export default function HomePage() {
             <h2>An inside advantage in how homes are seen.</h2>
             <p>As a co-owner of Luxe Realty Photography, Casey brings direct access to the media expertise trusted to showcase homes across Arizona.</p>
             <p>This partnership means your visual strategy is not outsourced as an afterthought. It is part of the selling plan from day one.</p>
-            <a className="text-link" href="https://luxe-realty-photography-website.vercel.app/southern-arizona" target="_blank" rel="noreferrer">Meet the media partner <ArrowIcon /></a>
+            <a className="text-link" href={siteConfig.luxePartnerUrl} target="_blank" rel="noopener noreferrer">Meet the media partner <ArrowIcon /></a>
           </div>
         </div>
       </section>
@@ -86,13 +104,35 @@ export default function HomePage() {
       <section className="testimonials section section--ivory" aria-labelledby="testimonials-title">
         <div className="shell testimonial-layout">
           <div>
-            <p className="eyebrow">Client experience</p>
-            <h2 id="testimonials-title">Trusted guidance.<br />Marketing that delivers.</h2>
+            <p className="eyebrow">Seller experience</p>
+            <h2 id="testimonials-title">What sellers can expect.</h2>
+            <div className="seller-photo">
+              <Image
+                src="/seller-experience-photo.jpg"
+                alt="Southern Arizona home prepared for a premium real estate launch"
+                width={1024}
+                height={683}
+                sizes="(max-width: 900px) 100vw, 44vw"
+              />
+            </div>
           </div>
-          <blockquote>
-            <p>“Client stories and verified results will be featured here as Casey&apos;s testimonial library grows.”</p>
-            <footer>Testimonials coming soon</footer>
-          </blockquote>
+          <div className="seller-expectations" aria-label="Seller experience expectations">
+            <article>
+              <span>01</span>
+              <h3>Clear communication</h3>
+              <p>Know what is happening, why it matters, and what comes next before your home reaches the market.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Practical guidance</h3>
+              <p>Get focused advice on preparation, presentation, pricing, and buyer-facing details that affect attention.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>A launch plan</h3>
+              <p>Bring media, listing strategy, and digital promotion together around a coordinated market debut.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -116,6 +156,7 @@ export default function HomePage() {
             <p className="eyebrow">Start a conversation</p>
             <h2>What could your home be worth with the right marketing?</h2>
             <p>Request a complimentary home value conversation and a clear look at what it would take to position your property for the market.</p>
+            <p className="next-step">What happens next: Casey reviews your request, follows up directly, and outlines a practical first step for your selling timeline.</p>
             <div className="contact-details">
               <span>Tucson · Phoenix · Southern Arizona</span>
               <span>Personal strategy. Premium presentation.</span>

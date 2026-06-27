@@ -27,5 +27,5 @@ test("primary CTA reaches the form and the Phase 1 form validates", async ({ pag
   await page.getByLabel(/I agree to be contacted/).check();
   await page.getByRole("button", { name: "Request my consultation" }).click();
 
-  await expect(page.getByRole("status")).toContainText("ready for delivery integration");
+  await expect(page.getByRole("status")).toContainText("ready for launch delivery setup");
 });

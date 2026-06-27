@@ -93,7 +93,9 @@ components/
 lib/
   site.ts                Shared site identity, URL, areas, and navigation
 public/
-  casey-james-hero-placeholder.png
+  homepage-hero.jpg
+  casey-james-headshot.png
+  seller-experience-photo.jpg
 tests/e2e/
   landing.spec.ts        Responsive rendering, CTA, and form tests
 ```
@@ -112,9 +114,9 @@ Core page copy and section ordering are in `app/page.tsx`.
 
 ### Hero image or video
 
-The generated placeholder is `public/casey-james-hero-placeholder.png`.
+The current hero image is `public/homepage-hero.jpg`.
 
-To use Casey's final image, replace the file or update the `Image` source in `app/page.tsx`. To use video, replace the hero media element with a muted, looping, `playsInline` video and retain a poster image and readable gradient overlay.
+To change the hero image, replace that file or update the `Image` source in `app/page.tsx`. To use video, replace the hero media element with a muted, looping, `playsInline` video and retain a poster image and readable gradient overlay.
 
 ### Casey's portrait and logo
 
