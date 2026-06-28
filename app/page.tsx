@@ -97,7 +97,18 @@ export default function HomePage() {
 
       <section className="services section">
         <div className="shell">
-          <SectionHeading eyebrow="Marketing services" title="Every tool your home needs to stand out." description="A coordinated suite of professional media and marketing—planned as one campaign, not a collection of add-ons." />
+          <div className="services-intro">
+            <SectionHeading eyebrow="Marketing services" title="Every tool your home needs to stand out." description="A coordinated suite of professional media and marketing—planned as one campaign, not a collection of add-ons." />
+            <div className="services-media" aria-hidden="true">
+              <Image
+                src="/marketing-services-section-photo.jpg"
+                alt=""
+                width={1100}
+                height={733}
+                sizes="(max-width: 1100px) 100vw, 40vw"
+              />
+            </div>
+          </div>
           <MarketingServices />
         </div>
       </section>
