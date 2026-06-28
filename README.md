@@ -95,7 +95,9 @@ lib/
 public/
   homepage-hero.jpg
   casey-james-headshot.png
-  seller-experience-photo.jpg
+  marketing-advantage-section-photo.jpg
+  seller-experience-section-photo.jpg
+  local-expertise-section-photo.jpg
 tests/e2e/
   landing.spec.ts        Responsive rendering, CTA, and form tests
 ```

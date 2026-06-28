@@ -70,7 +70,22 @@ export default function HomePage() {
 
       <section className="advantage section section--ivory" id="marketing">
         <div className="shell">
-          <SectionHeading eyebrow="The marketing advantage" title="Built to create attention. Designed to inspire action." description="Every home has a story. The right launch gives buyers a reason to care—and a clear path to act." />
+          <div className="advantage-intro">
+            <div className="advantage-copy">
+              <p className="eyebrow">The marketing advantage</p>
+              <h2>Built to create attention. Designed to inspire action.</h2>
+              <p>Every home has a story. The right launch gives buyers a reason to care—and a clear path to act.</p>
+            </div>
+            <div className="advantage-media" aria-hidden="true">
+              <Image
+                src="/marketing-advantage-section-photo.jpg"
+                alt=""
+                width={1024}
+                height={683}
+                sizes="(max-width: 900px) 100vw, 38vw"
+              />
+            </div>
+          </div>
           <div className="advantage-grid">
             <article><span>01</span><h3>Position with purpose</h3><p>Pricing, preparation, and a tailored launch plan built around your property and goals.</p></article>
             <article><span>02</span><h3>Present exceptionally</h3><p>Premium visual media that captures the home, the details, and the lifestyle buyers want.</p></article>
@@ -108,10 +123,11 @@ export default function HomePage() {
             <h2 id="testimonials-title">What sellers can expect.</h2>
             <div className="seller-photo">
               <Image
-                src="/seller-experience-photo.jpg"
+                src="/seller-experience-section-photo.jpg"
                 alt="Southern Arizona home prepared for a premium real estate launch"
                 width={1024}
                 height={683}
+                loading="eager"
                 sizes="(max-width: 900px) 100vw, 44vw"
               />
             </div>
