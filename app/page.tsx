@@ -168,7 +168,7 @@ export default function HomePage() {
         <div className="shell service-area-grid">
           <div>
             <p className="eyebrow">Local expertise · statewide reach</p>
-            <h2>Arizona is home.<br /><em>Your move starts here.</em></h2>
+            <h2>Arizona is home.<span><em>Your move starts here.</em></span></h2>
           </div>
           <div className="area-list" aria-label="Service areas">
             <span>Tucson <small>01</small></span>

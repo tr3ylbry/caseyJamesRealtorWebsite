@@ -117,7 +117,7 @@ This section reframes the original testimonials placeholder into "What sellers c
 
 ### Service Area
 
-Uses `local-expertise-section-photo.jpg` as the background. Keep Equal Housing language and brokerage/license placeholders in footer until verified.
+Uses `local-expertise-section-photo.jpg` as the background. The headline and location list use Service Area-specific CSS variables so both sides scale proportionally while preserving the two-column visual balance. Keep Equal Housing language and brokerage/license placeholders in footer until verified.
 
 ## Contact form behavior
 
