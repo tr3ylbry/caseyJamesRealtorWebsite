@@ -47,6 +47,7 @@ export default function HomePage() {
                 alt="Casey James, Marketing-First REALTOR"
                 width={912}
                 height={1368}
+                loading="eager"
                 sizes="(max-width: 900px) 100vw, 44vw"
                 className="meet-image"
               />
