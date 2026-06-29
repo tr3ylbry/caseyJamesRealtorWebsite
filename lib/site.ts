@@ -6,6 +6,10 @@ export const siteConfig = {
   url: "https://sellwithcaseyjames.com",
   luxePartnerUrl: "https://luxe-realty-photography-website.vercel.app/southern-arizona",
   fallbackContactEmail: "hello@sellwithcaseyjames.com",
+  contactPhone: "5209002735",
+  contactPhoneFormatted: "(520) 900-2735",
+  contactEmail: "caseyjameselliott@gmail.com",
+  arizonaLicense: "SA722522000",
   serviceAreas: ["Tucson", "Phoenix", "Southern Arizona"],
   navigation: [
     { label: "Meet Casey", href: "#meet-casey" },

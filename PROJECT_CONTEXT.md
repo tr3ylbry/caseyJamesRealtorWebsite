@@ -74,20 +74,22 @@ Most of the site is server-rendered/static. The contact form is the main client-
 
 ## Current image assets
 
-All current section images are in `public/`:
+Current assets are organized by type in `public/`:
 
-- `homepage-hero.jpg` — hero background
-- `casey-james-headshot.png` — Meet Casey portrait
-- `marketing-advantage-section-photo.jpg` — Marketing Advantage image
-- `marketing-services-section-photo.jpg` — Marketing Services image
-- `seller-experience-section-photo.jpg` — Seller Experience image
-- `local-expertise-section-photo.jpg` — Service Area background
+- `hero/homepage-hero.jpg` — hero background
+- `portraits/casey-james-headshot.png` — Meet Casey portrait
+- `section-photos/marketing-advantage-section-photo.jpg` — Marketing Advantage image
+- `section-photos/marketing-services-section-photo.jpg` — Marketing Services image
+- `section-photos/seller-experience-section-photo.jpg` — Seller Experience image
+- `section-photos/local-expertise-section-photo.jpg` — Service Area background
+- `logos/real-realty-logo-white.png` — Real Broker footer logo
+- `icons/` — public SVG copies for CTA, marketing service, contact, and Equal Housing icons
 
 ## Section notes
 
 ### Hero
 
-Uses `homepage-hero.jpg` with a top dark gradient overlay so the navbar remains readable over bright architectural details.
+Uses `hero/homepage-hero.jpg` with a top dark gradient overlay so the navbar remains readable over bright architectural details.
 
 ### Meet Casey
 
@@ -103,13 +105,13 @@ The headshot is loaded eagerly because it may be detected as LCP depending on vi
 Uses a two-column intro layout:
 
 - left: eyebrow, headline, supporting copy
-- right: `marketing-advantage-section-photo.jpg`
+- right: `section-photos/marketing-advantage-section-photo.jpg`
 
 The lower three-column process cards remain unchanged.
 
 ### Marketing Services
 
-Uses a desktop intro layout with the heading/copy on the left and `marketing-services-section-photo.jpg` on the right. The image is aligned with the top of the headline, not the eyebrow. The services shell is slightly wider on desktop so the image can be larger without squeezing the headline copy.
+Uses a desktop intro layout with the heading/copy on the left and `section-photos/marketing-services-section-photo.jpg` on the right. The image is aligned with the top of the headline, not the eyebrow. The services shell is slightly wider on desktop so the image can be larger without squeezing the headline copy.
 
 ### Seller Experience
 
@@ -117,7 +119,7 @@ This section reframes the original testimonials placeholder into "What sellers c
 
 ### Service Area
 
-Uses `local-expertise-section-photo.jpg` as the background. The headline and location list use Service Area-specific CSS variables so both sides scale proportionally while preserving the two-column visual balance. Keep Equal Housing language and brokerage/license placeholders in footer until verified.
+Uses `section-photos/local-expertise-section-photo.jpg` as the background. The headline and location list use Service Area-specific CSS variables so both sides scale proportionally while preserving the two-column visual balance. Keep Equal Housing language and brokerage/license placeholders in footer until verified.
 
 ## Contact form behavior
 

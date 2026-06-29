@@ -37,7 +37,7 @@ export function SiteHeader() {
       <div className="site-header-inner">
         <a className="brand" href="#top" aria-label="Casey James, home">
           <span className="brand-name">Casey <em>James</em></span>
-          <span className="brand-role">Marketing-First REALTOR®</span>
+          <span className="brand-role">The Marketing-First REALTOR®</span>
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
           {siteConfig.navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}

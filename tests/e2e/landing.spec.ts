@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("renders the complete marketing-first landing page", async ({ page }, testInfo) => {
   await page.goto("/");
 
-  await expect(page).toHaveTitle(/Casey James.*Marketing-First REALTOR/);
+  await expect(page).toHaveTitle(/Casey James.*The Marketing-First REALTOR/);
   await expect(page.getByRole("heading", { name: /Most agents list homes/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: /Every tool your home needs/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: "An inside advantage in how homes are seen." })).toBeVisible();

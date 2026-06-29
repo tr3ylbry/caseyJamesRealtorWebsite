@@ -33,3 +33,15 @@ export function ChartIcon(props: IconProps) {
 export function ArrowIcon(props: IconProps) {
   return <svg viewBox="0 0 20 20" aria-hidden="true" {...base} {...props}><path d="M4 10h12m-5-5 5 5-5 5"/></svg>;
 }
+
+export function PhoneIcon(props: IconProps) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M6.7 4.5 9 3.4l3 5.2-1.9 1.4c.9 1.8 2.3 3.2 4.1 4.1l1.4-1.9 5.2 3-1.1 2.3c-.5 1-1.6 1.6-2.7 1.4-6.2-1-11-5.8-12-12-.1-1.1.7-2.1 1.7-2.4Z"/></svg>;
+}
+
+export function MailIcon(props: IconProps) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>;
+}
+
+export function EqualHousingIcon(props: IconProps) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}><path d="M4 11.5 12 5l8 6.5"/><path d="M6.5 10.5v8h11v-8"/><path d="M9 14h6M9 16.5h6"/></svg>;
+}

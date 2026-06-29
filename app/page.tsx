@@ -12,7 +12,7 @@ export default function HomePage() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-media" aria-hidden="true">
           <Image
-            src="/homepage-hero.jpg"
+            src="/hero/homepage-hero.jpg"
             alt=""
             fill
             priority
@@ -43,8 +43,8 @@ export default function HomePage() {
             <div className="portrait-outer-frame" aria-hidden="true" />
             <div className="portrait-inner-frame">
               <Image
-                src="/casey-james-headshot.png"
-                alt="Casey James, Marketing-First REALTOR"
+                src="/portraits/casey-james-headshot.png"
+                alt="Casey James, The Marketing-First REALTOR"
                 width={912}
                 height={1368}
                 loading="eager"
@@ -79,7 +79,7 @@ export default function HomePage() {
             </div>
             <div className="advantage-media media-frame media-frame--cinematic" aria-hidden="true">
               <Image
-                src="/marketing-advantage-section-photo.jpg"
+                src="/section-photos/marketing-advantage-section-photo.jpg"
                 alt=""
                 width={1024}
                 height={683}
@@ -101,7 +101,7 @@ export default function HomePage() {
             <SectionHeading eyebrow="Marketing services" title="Every tool your home needs to stand out." description="A coordinated suite of professional media and marketing—planned as one campaign, not a collection of add-ons." />
             <div className="services-media media-frame media-frame--landscape" aria-hidden="true">
               <Image
-                src="/marketing-services-section-photo.jpg"
+                src="/section-photos/marketing-services-section-photo.jpg"
                 alt=""
                 width={1100}
                 height={733}
@@ -135,7 +135,7 @@ export default function HomePage() {
             <h2 id="testimonials-title">What sellers can expect.</h2>
             <div className="seller-photo media-frame media-frame--landscape">
               <Image
-                src="/seller-experience-section-photo.jpg"
+                src="/section-photos/seller-experience-section-photo.jpg"
                 alt="Southern Arizona home prepared for a premium real estate launch"
                 width={1024}
                 height={683}
@@ -148,7 +148,7 @@ export default function HomePage() {
             <article>
               <span>01</span>
               <h3>Clear communication</h3>
-              <p>Know what is happening, why it matters, and what comes next before your home reaches the market.</p>
+              <p>Know what&apos;s happening, why it matters, and what comes next before your home reaches the market.</p>
             </article>
             <article>
               <span>02</span>
@@ -158,7 +158,7 @@ export default function HomePage() {
             <article>
               <span>03</span>
               <h3>A launch plan</h3>
-              <p>Bring media, listing strategy, and digital promotion together around a coordinated market debut.</p>
+              <p>Bringing media, listing strategy, and digital promotion together around a coordinated market debut.</p>
             </article>
           </div>
         </div>
@@ -196,9 +196,46 @@ export default function HomePage() {
 
       <footer className="footer">
         <div className="shell footer-grid">
-          <a className="brand" href="#top"><span className="brand-name">Casey <em>James</em></span><span className="brand-role">Marketing-First REALTOR®</span></a>
-          <p>© {new Date().getFullYear()} Casey James. All rights reserved.</p>
-          <p className="footer-disclaimer">Equal Housing Opportunity. Brokerage and license information to be added before launch.</p>
+          <div className="footer-brand">
+            <a className="brand" href="#top">
+              <span className="brand-name">Casey <em>James</em></span>
+              <span className="brand-role">The Marketing-First REALTOR®</span>
+            </a>
+            <div className="footer-contact" aria-label="Casey James contact information">
+              <a href={`tel:+1${siteConfig.contactPhone}`} aria-label={`Call Casey James at ${siteConfig.contactPhoneFormatted}`}>
+                <Image src="/icons/phone.svg" alt="" width={18} height={18} className="footer-icon" />
+                {siteConfig.contactPhoneFormatted}
+              </a>
+              <a href={`mailto:${siteConfig.contactEmail}`} aria-label={`Email Casey James at ${siteConfig.contactEmail}`}>
+                <Image src="/icons/mail.svg" alt="" width={18} height={18} className="footer-icon" />
+                {siteConfig.contactEmail}
+              </a>
+            </div>
+          </div>
+
+          <span className="footer-divider" aria-hidden="true" />
+
+          <div className="footer-legal">
+            <p>© {new Date().getFullYear()} Casey James. All rights reserved.</p>
+            <p>Arizona License # {siteConfig.arizonaLicense}</p>
+          </div>
+
+          <span className="footer-divider" aria-hidden="true" />
+
+          <div className="footer-brokerage">
+            <div className="footer-brokerage-brand">
+              <Image
+                src="/logos/real-realty-logo-white.png"
+                alt="Real Brokerage"
+                width={466}
+                height={146}
+                className="footer-real-logo"
+              />
+              <span className="footer-brokerage-divider" aria-hidden="true" />
+              <span className="footer-brokerage-name">Real Brokerage</span>
+            </div>
+            <p className="footer-equal-housing"><Image src="/icons/equal-housing.svg" alt="" width={18} height={18} className="footer-icon" /> Equal Housing Opportunity</p>
+          </div>
         </div>
       </footer>
     </main>

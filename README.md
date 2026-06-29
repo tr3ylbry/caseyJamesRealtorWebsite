@@ -1,4 +1,4 @@
-# Casey James — Marketing-First REALTOR®
+# Casey James — The Marketing-First REALTOR®
 
 Phase 1 of Casey James's personal real estate website. This is a premium, single-page seller lead-generation site for homeowners in Tucson, Phoenix, and Southern Arizona.
 
@@ -93,11 +93,27 @@ components/
 lib/
   site.ts                Shared site identity, URL, areas, and navigation
 public/
-  homepage-hero.jpg
-  casey-james-headshot.png
-  marketing-advantage-section-photo.jpg
-  seller-experience-section-photo.jpg
-  local-expertise-section-photo.jpg
+  hero/
+    homepage-hero.jpg
+  icons/
+    arrow.svg
+    camera.svg
+    chart.svg
+    drone.svg
+    equal-housing.svg
+    mail.svg
+    phone.svg
+    tour.svg
+    video.svg
+  logos/
+    real-realty-logo-white.png
+  portraits/
+    casey-james-headshot.png
+  section-photos/
+    local-expertise-section-photo.jpg
+    marketing-advantage-section-photo.jpg
+    marketing-services-section-photo.jpg
+    seller-experience-section-photo.jpg
 tests/e2e/
   landing.spec.ts        Responsive rendering, CTA, and form tests
 ```
@@ -116,7 +132,7 @@ Core page copy and section ordering are in `app/page.tsx`.
 
 ### Hero image or video
 
-The current hero image is `public/homepage-hero.jpg`.
+The current hero image is `public/hero/homepage-hero.jpg`.
 
 To change the hero image, replace that file or update the `Image` source in `app/page.tsx`. To use video, replace the hero media element with a muted, looping, `playsInline` video and retain a poster image and readable gradient overlay.
 

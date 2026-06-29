@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/homepage-hero.jpg",
+        url: "/hero/homepage-hero.jpg",
         width: 2048,
         height: 1365,
         alt: "Casey James real estate marketing hero image",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/homepage-hero.jpg"],
+    images: ["/hero/homepage-hero.jpg"],
   },
 };
 

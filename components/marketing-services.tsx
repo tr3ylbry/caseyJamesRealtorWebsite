@@ -23,7 +23,7 @@ export function MarketingServices() {
           {index === 0 ? (
             <div className="service-card-media media-frame media-frame--landscape" aria-hidden="true">
               <Image
-                src="/marketing-services-section-photo.jpg"
+                src="/section-photos/marketing-services-section-photo.jpg"
                 alt=""
                 width={1100}
                 height={733}
