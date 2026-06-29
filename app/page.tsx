@@ -43,10 +43,10 @@ export default function HomePage() {
             <div className="portrait-outer-frame" aria-hidden="true" />
             <div className="portrait-inner-frame">
               <Image
-                src="/portraits/casey-james-headshot.png"
+                src="/portraits/casey-james-headshot.webp"
                 alt="Casey James, The Marketing-First REALTOR"
-                width={912}
-                height={1368}
+                width={1400}
+                height={2100}
                 loading="eager"
                 sizes="(max-width: 900px) 100vw, 44vw"
                 className="meet-image"

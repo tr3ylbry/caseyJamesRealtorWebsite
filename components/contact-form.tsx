@@ -255,8 +255,11 @@ export function ContactForm() {
           autoComplete="street-address"
           placeholder="Address or neighborhood"
           value={values.address}
+          aria-invalid={Boolean(errors.address)}
+          aria-describedby={errors.address ? errorId("address") : undefined}
           onChange={handleTextChange("address")}
         />
+        {errors.address ? <small className="field-error" id={errorId("address")}>{errors.address}</small> : null}
       </label>
       <label>
         <span>How can Casey help? <em aria-hidden="true">Required</em></span>

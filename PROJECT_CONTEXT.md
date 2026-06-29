@@ -77,7 +77,8 @@ Most of the site is server-rendered/static. The contact form is the main client-
 Current assets are organized by type in `public/`:
 
 - `hero/homepage-hero.jpg` — hero background
-- `portraits/casey-james-headshot.png` — Meet Casey portrait
+- `portraits/casey-james-headshot.webp` — optimized Meet Casey portrait
+- `portraits/casey-james-headshot.png` — original source portrait
 - `section-photos/marketing-advantage-section-photo.jpg` — Marketing Advantage image
 - `section-photos/marketing-services-section-photo.jpg` — Marketing Services image
 - `section-photos/seller-experience-section-photo.jpg` — Seller Experience image

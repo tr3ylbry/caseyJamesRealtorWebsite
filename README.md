@@ -51,7 +51,13 @@ npm run dev
 
 Then open [http://localhost:3000](http://localhost:3000).
 
-No environment variables are required for the current static Phase 1 implementation.
+Copy `.env.example` to `.env.local` when configuring contact delivery:
+
+```bash
+cp .env.example .env.local
+```
+
+`CONTACT_FORM_WEBHOOK_URL` is required for production contact form delivery. Local development can simulate successful contact submissions without this value.
 
 ## Available commands
 
@@ -79,6 +85,9 @@ PLAYWRIGHT_BASE_URL=http://localhost:3001 npm run test:e2e
 
 ```text
 app/
+  apple-icon.png         Temporary launch Apple touch icon
+  icon.png               Temporary launch favicon/app icon
+  api/contact/route.ts   Contact form API endpoint, validation, honeypot, and delivery
   layout.tsx             Global metadata, fonts, and document layout
   page.tsx               Single-page landing-site composition and copy
   globals.css            Design system and responsive styles
@@ -109,6 +118,7 @@ public/
     real-realty-logo-white.png
   portraits/
     casey-james-headshot.png
+    casey-james-headshot.webp
   section-photos/
     local-expertise-section-photo.jpg
     marketing-advantage-section-photo.jpg
@@ -150,19 +160,23 @@ Replace the placeholder blockquote in `app/page.tsx` with verified client testim
 
 ## Contact form status
 
-The Phase 1 form provides accessible fields, browser validation, consent language, and a completed interaction state. It does **not** currently transmit or store lead data.
+The Phase 1 form posts to `/api/contact` and uses progressive enhancement with a native `action="/api/contact"` fallback. JavaScript-enhanced submissions do not refresh the page or append query parameters to the URL.
 
-Before launch, connect it to an approved delivery service or server endpoint. The production implementation should include:
+Current behavior:
 
-- Server-side validation and normalization
-- Spam and abuse protection
-- Rate limiting
-- Secure environment variables
-- Clear success and failure states
-- Privacy-policy and consent review
-- Logging that excludes unnecessary personal information
+- Client-side and server-side validation share `lib/contact-validation.ts`
+- First name, last name, message, one valid contact method, and consent are required
+- Email and phone are validated when provided
+- Phone input formats as `123-456-7890`
+- Field length limits reject oversized submissions before delivery
+- Honeypot submissions return success without delivery
+- Simple rate limiting returns a friendly `429` response
+- Missing production delivery configuration returns a friendly `503`
+- API responses use `Cache-Control: no-store`
 
-Do not ship the current demonstration success state as a live lead-delivery workflow.
+Production delivery requires `CONTACT_FORM_WEBHOOK_URL`. In local/non-production environments, a missing webhook simulates success so the form can be tested without sending real inquiries.
+
+Before launch, confirm the delivery endpoint, privacy/consent requirements, and any internal logging policy. Do not log unnecessary personal information.
 
 ## SEO and launch configuration
 

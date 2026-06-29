@@ -5,6 +5,7 @@ type ContactResponse =
   | { ok: true }
   | { ok: false; errors?: ContactErrors; message: string };
 
+const noStoreHeaders = { "Cache-Control": "no-store" };
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 3;
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
@@ -38,6 +39,16 @@ function valueFromForm(formData: FormData, key: string) {
   return typeof value === "string" ? value.trim() : "";
 }
 
+function contactJson(body: ContactResponse, init?: ResponseInit) {
+  return NextResponse.json<ContactResponse>(body, {
+    ...init,
+    headers: {
+      ...noStoreHeaders,
+      ...init?.headers,
+    },
+  });
+}
+
 async function deliverInquiry(values: ContactValues) {
   const webhookUrl = process.env.CONTACT_FORM_WEBHOOK_URL;
 
@@ -67,7 +78,7 @@ export async function POST(request: NextRequest) {
   const clientKey = getClientKey(request);
 
   if (isRateLimited(clientKey)) {
-    return NextResponse.json<ContactResponse>(
+    return contactJson(
       { ok: false, message: "Too many requests." },
       { status: 429 },
     );
@@ -77,7 +88,7 @@ export async function POST(request: NextRequest) {
   const honeypot = valueFromForm(formData, "company");
 
   if (honeypot) {
-    return NextResponse.json<ContactResponse>({ ok: true });
+    return contactJson({ ok: true });
   }
 
   const values: ContactValues = {
@@ -93,7 +104,7 @@ export async function POST(request: NextRequest) {
   const errors = validateContact(values);
 
   if (hasContactErrors(errors)) {
-    return NextResponse.json<ContactResponse>(
+    return contactJson(
       {
         ok: false,
         errors,
@@ -107,15 +118,15 @@ export async function POST(request: NextRequest) {
     const delivered = await deliverInquiry(values);
 
     if (!delivered) {
-      return NextResponse.json<ContactResponse>(
+      return contactJson(
         { ok: false, message: "Inquiry delivery is not configured." },
         { status: 503 },
       );
     }
 
-    return NextResponse.json<ContactResponse>({ ok: true });
+    return contactJson({ ok: true });
   } catch {
-    return NextResponse.json<ContactResponse>(
+    return contactJson(
       { ok: false, message: "Unable to receive inquiry." },
       { status: 500 },
     );
