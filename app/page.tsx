@@ -75,15 +75,15 @@ export default function HomePage() {
             <div className="advantage-copy">
               <p className="eyebrow">The marketing advantage</p>
               <h2>Built to create attention. Designed to inspire action.</h2>
-              <p>Every home has a story. The right launch gives buyers a reason to care—and a clear path to act.</p>
+              <p>Every home has a story. The right launch gives buyers a reason to care — and a clear path to act.</p>
             </div>
-            <div className="advantage-media" aria-hidden="true">
+            <div className="advantage-media media-frame media-frame--cinematic" aria-hidden="true">
               <Image
                 src="/marketing-advantage-section-photo.jpg"
                 alt=""
                 width={1024}
                 height={683}
-                sizes="(max-width: 900px) 100vw, 38vw"
+                sizes="(max-width: 900px) 100vw, 40vw"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function HomePage() {
         <div className="shell">
           <div className="services-intro">
             <SectionHeading eyebrow="Marketing services" title="Every tool your home needs to stand out." description="A coordinated suite of professional media and marketing—planned as one campaign, not a collection of add-ons." />
-            <div className="services-media" aria-hidden="true">
+            <div className="services-media media-frame media-frame--landscape" aria-hidden="true">
               <Image
                 src="/marketing-services-section-photo.jpg"
                 alt=""
@@ -128,12 +128,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="testimonials section section--ivory" aria-labelledby="testimonials-title">
+      <section className="testimonials section section--ivory" id="seller-experience" aria-labelledby="testimonials-title">
         <div className="shell testimonial-layout">
           <div>
             <p className="eyebrow">Seller experience</p>
             <h2 id="testimonials-title">What sellers can expect.</h2>
-            <div className="seller-photo">
+            <div className="seller-photo media-frame media-frame--landscape">
               <Image
                 src="/seller-experience-section-photo.jpg"
                 alt="Southern Arizona home prepared for a premium real estate launch"

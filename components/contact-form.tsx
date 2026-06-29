@@ -84,7 +84,7 @@ export function ContactForm() {
 
     if (status === "error") {
       setStatus("idle");
-      setStatusMessage("Required fields are marked. No pressure —just a practical conversation about your goals.");
+      setStatusMessage("Required fields are marked. No pressure — just a practical conversation about your goals.");
     }
   }
 

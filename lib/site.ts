@@ -10,6 +10,6 @@ export const siteConfig = {
   navigation: [
     { label: "Meet Casey", href: "#meet-casey" },
     { label: "Marketing", href: "#marketing" },
-    { label: "Service Area", href: "#service-area" },
+    { label: "Selling With Casey", href: "#seller-experience" },
   ],
 } as const;
