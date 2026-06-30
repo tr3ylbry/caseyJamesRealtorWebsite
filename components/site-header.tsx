@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site";
 
@@ -42,7 +43,19 @@ export function SiteHeader() {
         <nav className="desktop-nav" aria-label="Main navigation">
           {siteConfig.navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
-        <a className="header-cta desktop-cta" href="#contact">Let&apos;s talk</a>
+        <div className="header-actions">
+          <div className="header-brokerage" aria-label="Brokered by Real Brokerage">
+            <span>Powered by</span>
+            <Image
+              src="/logos/real-realty-logo-white.png"
+              alt="Real Brokerage"
+              width={466}
+              height={146}
+              priority
+            />
+          </div>
+          <a className="header-cta desktop-cta" href="#contact">Let&apos;s talk</a>
+        </div>
         <button
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
@@ -61,6 +74,15 @@ export function SiteHeader() {
             {item.label}
           </a>
         ))}
+        <div className="mobile-menu-brokerage" aria-label="Brokered by Real Brokerage">
+          <Image
+            src="/logos/real-realty-logo-white.png"
+            alt="Real Brokerage"
+            width={466}
+            height={146}
+          />
+          <span>Real Brokerage</span>
+        </div>
       </nav>
     </header>
   );

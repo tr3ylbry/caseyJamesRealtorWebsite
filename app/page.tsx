@@ -201,15 +201,19 @@ export default function HomePage() {
               <span className="brand-name">Casey <em>James</em></span>
               <span className="brand-role">The Marketing-First REALTOR®</span>
             </a>
-            <div className="footer-contact" aria-label="Casey James contact information">
-              <a href={`tel:+1${siteConfig.contactPhone}`} aria-label={`Call Casey James at ${siteConfig.contactPhoneFormatted}`}>
-                <Image src="/icons/phone.svg" alt="" width={18} height={18} className="footer-icon" />
-                {siteConfig.contactPhoneFormatted}
-              </a>
-              <a href={`mailto:${siteConfig.contactEmail}`} aria-label={`Email Casey James at ${siteConfig.contactEmail}`}>
-                <Image src="/icons/mail.svg" alt="" width={18} height={18} className="footer-icon" />
-                {siteConfig.contactEmail}
-              </a>
+            <div className="footer-brokerage-brand">
+              <span className="footer-real-lockup">
+                <span className="footer-powered-by">Powered by</span>
+                <Image
+                  src="/logos/real-realty-logo-white.png"
+                  alt="Real Brokerage"
+                  width={466}
+                  height={146}
+                  className="footer-real-logo"
+                />
+              </span>
+              <span className="footer-brokerage-divider" aria-hidden="true" />
+              <span className="footer-brokerage-name">Real Brokerage</span>
             </div>
           </div>
 
@@ -218,23 +222,22 @@ export default function HomePage() {
           <div className="footer-legal">
             <p>© {new Date().getFullYear()} Casey James. All rights reserved.</p>
             <p>Arizona License # {siteConfig.arizonaLicense}</p>
+            <p className="footer-equal-housing"><Image src="/icons/equal-housing.svg" alt="" width={18} height={18} className="footer-icon" /> Equal Housing Opportunity</p>
           </div>
 
           <span className="footer-divider" aria-hidden="true" />
 
-          <div className="footer-brokerage">
-            <div className="footer-brokerage-brand">
-              <Image
-                src="/logos/real-realty-logo-white.png"
-                alt="Real Brokerage"
-                width={466}
-                height={146}
-                className="footer-real-logo"
-              />
-              <span className="footer-brokerage-divider" aria-hidden="true" />
-              <span className="footer-brokerage-name">Real Brokerage</span>
-            </div>
-            <p className="footer-equal-housing"><Image src="/icons/equal-housing.svg" alt="" width={18} height={18} className="footer-icon" /> Equal Housing Opportunity</p>
+          <div className="footer-contact" aria-label="Casey James contact information">
+            <p className="footer-contact-heading">Contact Me</p>
+            <span className="footer-contact-rule" aria-hidden="true" />
+            <a href={`tel:+1${siteConfig.contactPhone}`} aria-label={`Call Casey James at ${siteConfig.contactPhoneFormatted}`}>
+              <Image src="/icons/phone.svg" alt="" width={18} height={18} className="footer-icon" />
+              {siteConfig.contactPhoneFormatted}
+            </a>
+            <a href={`mailto:${siteConfig.contactEmail}`} aria-label={`Email Casey James at ${siteConfig.contactEmail}`}>
+              <Image src="/icons/mail.svg" alt="" width={18} height={18} className="footer-icon" />
+              {siteConfig.contactEmail}
+            </a>
           </div>
         </div>
       </footer>
