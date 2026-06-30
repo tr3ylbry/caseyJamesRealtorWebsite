@@ -11,8 +11,9 @@ const nextConfig: NextConfig = {
             value: "nosniff",
           },
           {
-            key: "X-Frame-Options",
-            value: "DENY",
+            key: "Content-Security-Policy",
+            value:
+              "frame-ancestors 'self' https://treydmarktech.com https://www.treydmarktech.com;",
           },
           {
             key: "Referrer-Policy",
