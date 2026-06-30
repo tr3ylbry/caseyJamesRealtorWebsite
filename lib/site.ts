@@ -4,8 +4,8 @@ export const siteConfig = {
   description:
     "Marketing-first real estate guidance for homeowners selling in Tucson, Phoenix, and Southern Arizona.",
   url: "https://sellwithcaseyjames.com",
-  luxePartnerUrl: "https://luxe-realty-photography-website.vercel.app/southern-arizona",
-  treydmarkTechUrl: "https://treydmark.tech",
+  luxePartnerUrl: "https://luxerealtyphotography.com/",
+  treydmarkTechUrl: "https://treydmarktech.com",
   fallbackContactEmail: "caseyjameselliott@gmail.com",
   contactPhone: "5209002735",
   contactPhoneFormatted: "(520) 900-2735",

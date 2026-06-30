@@ -238,7 +238,7 @@ export default function HomePage() {
           <span className="footer-divider" aria-hidden="true" />
 
           <div className="footer-contact" aria-label="Casey James contact information">
-            <p className="footer-contact-heading">Contact Me</p>
+            <p className="footer-contact-heading">Contact Casey</p>
             <span className="footer-contact-rule" aria-hidden="true" />
             <a href={`tel:+1${siteConfig.contactPhone}`} aria-label={`Call Casey James at ${siteConfig.contactPhoneFormatted}`}>
               <Image src="/icons/phone.svg" alt="" width={18} height={18} className="footer-icon" />

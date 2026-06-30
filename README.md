@@ -152,7 +152,7 @@ Add approved assets under `public/` and reference them from `app/page.tsx` or `c
 
 ### Luxe partner link
 
-The partner CTA currently points to the temporary Luxe Southern Arizona reference deployment. Replace it with the approved production Luxe URL before launch.
+The partner CTA uses the approved production Luxe Realty Photography URL from `lib/site.ts`.
 
 ### Testimonials
 
