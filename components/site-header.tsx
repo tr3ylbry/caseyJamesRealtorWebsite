@@ -56,6 +56,15 @@ export function SiteHeader() {
           </div>
           <a className="header-cta desktop-cta" href="#contact">Let&apos;s talk</a>
         </div>
+        <div className="mobile-header-brokerage" aria-label="Brokered by Real Brokerage">
+          <span className="mobile-header-brokerage-kicker">Powered by</span>
+          <Image
+            src="/logos/real-realty-logo-white.png"
+            alt=""
+            width={466}
+            height={146}
+          />
+        </div>
         <button
           aria-controls="mobile-navigation"
           aria-expanded={isMenuOpen}
@@ -74,15 +83,6 @@ export function SiteHeader() {
             {item.label}
           </a>
         ))}
-        <div className="mobile-menu-brokerage" aria-label="Brokered by Real Brokerage">
-          <Image
-            src="/logos/real-realty-logo-white.png"
-            alt="Real Brokerage"
-            width={466}
-            height={146}
-          />
-          <span>Real Brokerage</span>
-        </div>
       </nav>
     </header>
   );

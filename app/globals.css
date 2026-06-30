@@ -221,6 +221,9 @@ h1 em, h2 em { color: var(--gold-light); font-weight: 500; }
 }
 .site-header.is-menu-open .mobile-menu-toggle span:first-child { transform: translateY(3.5px) rotate(45deg); }
 .site-header.is-menu-open .mobile-menu-toggle span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+.mobile-header-brokerage {
+  display: none;
+}
 .mobile-menu {
   display: none;
 }
@@ -610,9 +613,34 @@ h1 em, h2 em { color: var(--gold-light); font-weight: 500; }
     --container-wide: var(--container-standard);
     --section-padding: 90px;
   }
-  .site-header-inner { grid-template-columns: 1fr auto; padding: 20px 24px; }
+  .site-header-inner { grid-template-columns: 1fr auto auto; padding: 20px 24px; }
   .desktop-nav,
   .header-actions { display: none; }
+  .mobile-header-brokerage {
+    align-items: center;
+    color: rgba(255, 255, 255, .78);
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-self: end;
+    margin-left: auto;
+    margin-right: 12px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .mobile-header-brokerage-kicker {
+    color: #c9c1b3;
+    font-size: .54rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    line-height: 1;
+  }
+  .mobile-header-brokerage img {
+    display: block;
+    height: auto;
+    opacity: .9;
+    width: clamp(46px, 8.5vw, 62px);
+  }
   .mobile-menu-toggle { display: inline-flex; }
   .mobile-menu {
     -webkit-backdrop-filter: blur(16px);
@@ -674,29 +702,6 @@ h1 em, h2 em { color: var(--gold-light); font-weight: 500; }
   .mobile-menu a:last-child:focus-visible {
     background: rgba(226, 189, 116, .1);
     border-color: var(--gold-light);
-  }
-  .mobile-menu-brokerage {
-    align-items: center;
-    color: #b7b0a4;
-    display: inline-flex;
-    gap: 12px;
-    justify-self: start;
-    letter-spacing: .08em;
-    margin-top: 18px;
-    text-transform: uppercase;
-  }
-  .mobile-menu-brokerage img {
-    display: block;
-    height: auto;
-    opacity: .9;
-    width: 56px;
-  }
-  .mobile-menu-brokerage span {
-    color: #c9c1b3;
-    font-size: .68rem;
-    font-weight: 700;
-    letter-spacing: .11em;
-    text-shadow: 0 1px 14px rgba(0, 0, 0, .7);
   }
   .hero { min-height: 760px; }
   .hero-media::after { background: linear-gradient(90deg, rgba(4,5,5,.92), rgba(4,5,5,.35)), linear-gradient(0deg, rgba(4,5,5,.9), transparent 60%); }
@@ -771,6 +776,18 @@ h1 em, h2 em { color: var(--gold-light); font-weight: 500; }
   h2 { font-size: 3.15rem; }
   .site-header-inner { padding-inline: 16px; }
   .mobile-menu { padding-inline: 16px; }
+  .mobile-header-brokerage {
+    gap: 3px;
+    margin-right: 10px;
+  }
+  .mobile-header-brokerage-kicker {
+    display: inline;
+    font-size: .48rem;
+    letter-spacing: .13em;
+  }
+  .mobile-header-brokerage img {
+    width: 46px;
+  }
   .brand-name { font-size: 1.55rem; }
   .hero { min-height: 760px; }
   .hero-image { object-position: 61% center; }
@@ -819,6 +836,12 @@ h1 em, h2 em { color: var(--gold-light); font-weight: 500; }
   .footer-real-logo { width: clamp(43px, 16vw, 56px); }
   .footer-brokerage-divider { height: 24px; }
   .footer-brokerage-name { font-size: .84rem; }
+}
+
+@media (max-width: 360px) {
+  .mobile-header-brokerage {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
