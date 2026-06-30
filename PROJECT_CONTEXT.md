@@ -153,7 +153,7 @@ Server behavior:
 - Honeypot support
 - Simple rate limiting
 - Does not expose raw server/API errors to users
-- Uses `CONTACT_FORM_WEBHOOK_URL` when configured
+- Sends directly through Resend when `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL` are configured
 
 ## Config and launch placeholders
 
@@ -168,7 +168,7 @@ Before launch, confirm:
 - Required REALTOR® / Equal Housing / brokerage disclosures
 - Casey's direct contact information
 - Privacy policy / terms requirements
-- Contact delivery endpoint or CRM workflow
+- Resend sending domain and production recipient inbox
 
 Do not invent license numbers or brokerage compliance details.
 

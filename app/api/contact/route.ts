@@ -8,6 +8,7 @@ type ContactResponse =
 const noStoreHeaders = { "Cache-Control": "no-store" };
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 3;
+const RESEND_EMAIL_ENDPOINT = "https://api.resend.com/emails";
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
 
 function getClientKey(request: NextRequest) {
@@ -49,25 +50,106 @@ function contactJson(body: ContactResponse, init?: ResponseInit) {
   });
 }
 
-async function deliverInquiry(values: ContactValues) {
-  const webhookUrl = process.env.CONTACT_FORM_WEBHOOK_URL;
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
-  if (!webhookUrl) {
+function formatOptionalValue(value: string) {
+  return value.trim() || "Not provided";
+}
+
+function buildInquiryEmail(values: ContactValues) {
+  const fullName = `${values.firstName.trim()} ${values.lastName.trim()}`.trim();
+  const email = formatOptionalValue(values.email);
+  const phoneDigits = getPhoneDigits(values.phone);
+  const phone = phoneDigits || "Not provided";
+  const address = formatOptionalValue(values.address);
+  const message = values.message.trim();
+  const submittedAt = new Date().toLocaleString("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "America/Phoenix",
+  });
+
+  const text = [
+    "New Casey James realtor website inquiry",
+    "",
+    `Name: ${fullName}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    `Property address/neighborhood: ${address}`,
+    `Submitted: ${submittedAt} Arizona time`,
+    "",
+    "Message:",
+    message,
+  ].join("\n");
+
+  const rows = [
+    ["Name", fullName],
+    ["Email", email],
+    ["Phone", phone],
+    ["Property address/neighborhood", address],
+    ["Submitted", `${submittedAt} Arizona time`],
+  ];
+
+  const htmlRows = rows.map(([label, value]) => `
+    <tr>
+      <th style="padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid #e8e2d7; color: #5f594f; font-family: Arial, sans-serif; font-size: 13px;">${escapeHtml(label)}</th>
+      <td style="padding: 10px 12px; vertical-align: top; border-bottom: 1px solid #e8e2d7; color: #17130d; font-family: Arial, sans-serif; font-size: 14px;">${escapeHtml(value)}</td>
+    </tr>
+  `).join("");
+
+  const html = `
+    <div style="margin: 0; padding: 28px; background: #f7f2e8;">
+      <div style="max-width: 640px; margin: 0 auto; background: #ffffff; border: 1px solid #e2d7c4;">
+        <div style="padding: 24px 28px; background: #090908;">
+          <p style="margin: 0 0 8px; color: #d6a64f; font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">Casey James Realtor Website</p>
+          <h1 style="margin: 0; color: #fff8ec; font-family: Georgia, serif; font-size: 28px; font-weight: 500;">New seller inquiry</h1>
+        </div>
+        <div style="padding: 24px 28px;">
+          <table style="width: 100%; border-collapse: collapse;">${htmlRows}</table>
+          <div style="margin-top: 24px;">
+            <h2 style="margin: 0 0 10px; color: #17130d; font-family: Georgia, serif; font-size: 22px; font-weight: 500;">Message</h2>
+            <p style="margin: 0; white-space: pre-line; color: #3f3930; font-family: Arial, sans-serif; font-size: 15px; line-height: 1.65;">${escapeHtml(message)}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  return { fullName, html, text };
+}
+
+async function deliverInquiry(values: ContactValues) {
+  const resendApiKey = process.env.RESEND_API_KEY;
+  const toEmail = process.env.CONTACT_TO_EMAIL;
+  const fromEmail = process.env.CONTACT_FROM_EMAIL;
+
+  if (!resendApiKey || !toEmail || !fromEmail) {
     return process.env.NODE_ENV !== "production";
   }
 
-  const response = await fetch(webhookUrl, {
+  const email = buildInquiryEmail(values);
+  const replyTo = values.email.trim();
+
+  const response = await fetch(RESEND_EMAIL_ENDPOINT, {
     method: "POST",
-    headers: { "content-type": "application/json" },
+    headers: {
+      authorization: `Bearer ${resendApiKey}`,
+      "content-type": "application/json",
+    },
     body: JSON.stringify({
-      source: "Casey James realtor website",
-      firstName: values.firstName.trim(),
-      lastName: values.lastName.trim(),
-      email: values.email.trim(),
-      phone: getPhoneDigits(values.phone),
-      address: values.address.trim(),
-      message: values.message.trim(),
-      submittedAt: new Date().toISOString(),
+      from: fromEmail,
+      to: [toEmail],
+      subject: `New seller inquiry from ${email.fullName}`,
+      html: email.html,
+      text: email.text,
+      ...(replyTo ? { reply_to: replyTo } : {}),
     }),
   });
 

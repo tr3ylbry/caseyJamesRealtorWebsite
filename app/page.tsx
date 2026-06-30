@@ -4,6 +4,7 @@ import { ArrowIcon } from "@/components/icons";
 import { MarketingServices } from "@/components/marketing-services";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
+import { SiteSignature } from "@/components/site-signature";
 import { siteConfig } from "@/lib/site";
 
 export default function HomePage() {
@@ -115,8 +116,15 @@ export default function HomePage() {
 
       <section className="partner section">
         <div className="shell partner-grid">
-          <div className="partner-visual" aria-hidden="true">
-            <div className="partner-mark"><span>LUXE</span><small>Realty Photography</small></div>
+          <div className="partner-visual">
+            <Image
+              src="/logos/luxe-logo-white-type.png"
+              alt="Luxe Realty Photography"
+              width={827}
+              height={780}
+              sizes="(max-width: 900px) 78vw, 34vw"
+              className="partner-logo-image"
+            />
           </div>
           <div className="partner-content">
             <p className="eyebrow">Powered by premium media</p>
@@ -194,7 +202,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="footer">
+      <SiteSignature />
+
+      <footer className="footer" id="site-footer">
         <div className="shell footer-grid">
           <div className="footer-brand">
             <a className="brand" href="#top">

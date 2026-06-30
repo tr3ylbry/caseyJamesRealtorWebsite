@@ -57,7 +57,7 @@ Copy `.env.example` to `.env.local` when configuring contact delivery:
 cp .env.example .env.local
 ```
 
-`CONTACT_FORM_WEBHOOK_URL` is required for production contact form delivery. Local development can simulate successful contact submissions without this value.
+Direct Resend delivery requires `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL` in production. Local development can simulate successful contact submissions when these values are omitted.
 
 ## Available commands
 
@@ -172,11 +172,12 @@ Current behavior:
 - Honeypot submissions return success without delivery
 - Simple rate limiting returns a friendly `429` response
 - Missing production delivery configuration returns a friendly `503`
+- Direct email delivery uses Resend with `reply_to` set when the visitor provides an email address
 - API responses use `Cache-Control: no-store`
 
-Production delivery requires `CONTACT_FORM_WEBHOOK_URL`. In local/non-production environments, a missing webhook simulates success so the form can be tested without sending real inquiries.
+Production delivery requires `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL`. In local/non-production environments, missing Resend configuration simulates success so the form can be tested without sending real inquiries.
 
-Before launch, confirm the delivery endpoint, privacy/consent requirements, and any internal logging policy. Do not log unnecessary personal information.
+Before launch, confirm the Resend sending domain, recipient inbox, privacy/consent requirements, and any internal logging policy. Do not log unnecessary personal information.
 
 ## SEO and launch configuration
 
