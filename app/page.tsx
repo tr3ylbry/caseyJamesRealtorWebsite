@@ -58,7 +58,7 @@ export default function HomePage() {
             <p className="eyebrow">Meet Casey</p>
             <h2 id="meet-title">Your home deserves more than a sign in the yard.</h2>
             <p>Selling well takes more than a listing in a database and waiting for buyers to notice. Casey combines REALTOR® guidance with premium media strategy to help sellers prepare, position, and launch their homes with intention.</p>
-            <p>Through his connection to <a className="inline-link" href={siteConfig.luxePartnerUrl} target="_blank" rel="noopener noreferrer" aria-label="Visit Luxe Realty Photography">Luxe Realty Photography</a>, the visual plan starts early — not after the listing is already live — so photography, video, drone, 3D tours, and digital campaigns support one clear selling strategy.</p>
+            <p>With his connection to <a className="inline-link" href={siteConfig.luxePartnerUrl} target="_blank" rel="noopener noreferrer" aria-label="Visit Luxe Realty Photography">Luxe Realty Photography</a>, the visual plan starts early — not after the listing is already live — so photography, video, drone, 3D tours, and digital campaigns support one clear selling strategy.</p>
             <p>Every detail is planned to work together, from pricing and preparation to presentation, launch, and promotion.</p>
             <div className="credibility-list" aria-label="Casey James credibility points">
               <span><small>01</small>Strategic listing preparation</span>
@@ -202,8 +202,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <SiteSignature />
-
       <footer className="footer" id="site-footer">
         <div className="shell footer-grid">
           <div className="footer-brand">
@@ -249,6 +247,9 @@ export default function HomePage() {
               {siteConfig.contactEmail}
             </a>
           </div>
+        </div>
+        <div className="footer-signature-row">
+          <SiteSignature />
         </div>
       </footer>
     </main>

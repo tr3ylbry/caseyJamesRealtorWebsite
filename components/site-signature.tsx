@@ -30,8 +30,14 @@ export function SiteSignature() {
 
   useEffect(() => {
     let frame = 0;
+    const desktopQuery = window.matchMedia("(min-width: 901px)");
 
     function updateSignaturePosition() {
+      if (!desktopQuery.matches) {
+        setBottomOffset(baseOffset);
+        return;
+      }
+
       cancelAnimationFrame(frame);
 
       frame = requestAnimationFrame(() => {
@@ -49,14 +55,20 @@ export function SiteSignature() {
       });
     }
 
+    function handleViewportChange() {
+      updateSignaturePosition();
+    }
+
     updateSignaturePosition();
     window.addEventListener("scroll", updateSignaturePosition, { passive: true });
     window.addEventListener("resize", updateSignaturePosition);
+    desktopQuery.addEventListener("change", handleViewportChange);
 
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", updateSignaturePosition);
       window.removeEventListener("resize", updateSignaturePosition);
+      desktopQuery.removeEventListener("change", handleViewportChange);
     };
   }, []);
 

@@ -603,6 +603,9 @@ h1 em, h2 em { color: var(--gold-light); font-weight: 500; }
   text-transform: uppercase;
 }
 .footer-disclaimer { color: #77736c !important; font-size: .62rem !important; margin-inline: auto; max-width: 320px; }
+.footer-signature-row {
+  display: contents;
+}
 
 @keyframes rise-in { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 @keyframes hero-reveal { from { opacity: .25; scale: 1.07; } to { opacity: 1; scale: 1.015; } }
@@ -732,7 +735,7 @@ h1 em, h2 em { color: var(--gold-light); font-weight: 500; }
   .contact-intro { position: static; }
   .footer-grid {
     align-items: center;
-    gap: 28px;
+    gap: 0;
     grid-template-columns: 1fr;
     text-align: center;
   }
@@ -740,20 +743,45 @@ h1 em, h2 em { color: var(--gold-light); font-weight: 500; }
     display: none;
   }
   .footer-brand,
+  .footer-contact,
+  .footer-legal {
+    padding-block: clamp(24px, 4.5vw, 34px);
+    width: 100%;
+  }
+  .footer-brand,
   .footer-contact {
     align-items: center;
     padding-left: 0;
     padding-right: 0;
   }
-  .footer-brand { order: 1; padding-bottom: 0; }
-  .footer-contact { order: 2; }
+  .footer-brand { order: 1; }
+  .footer-contact {
+    border-top: 1px solid rgba(226, 189, 116, .16);
+    order: 2;
+  }
   .footer-legal {
+    border-top: 1px solid rgba(226, 189, 116, .16);
+    justify-self: stretch;
     order: 3;
-    width: min(100%, 620px);
-    justify-self: center;
+    width: 100%;
   }
   .footer-brokerage-brand { justify-content: center; }
   .footer-disclaimer { margin-inline: auto; }
+  .footer-signature-row {
+    border-top: 1px solid rgba(226, 189, 116, .16);
+    display: flex;
+    justify-content: flex-end;
+    margin-inline: auto;
+    width: var(--container-standard);
+  }
+  .footer-signature-row .site-signature {
+    bottom: auto;
+    margin: clamp(22px, 5vw, 34px) 0 0;
+    position: static;
+    right: auto;
+    transform: none;
+    width: fit-content;
+  }
 }
 
 @media (max-width: 900px) and (min-width: 561px) {
