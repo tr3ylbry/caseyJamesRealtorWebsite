@@ -200,6 +200,9 @@ export default function HomePage() {
           </div>
           <ContactForm />
         </div>
+        <div className="shell contact-signature-row">
+          <SiteSignature />
+        </div>
       </section>
 
       <footer className="footer" id="site-footer">
@@ -247,9 +250,6 @@ export default function HomePage() {
               {siteConfig.contactEmail}
             </a>
           </div>
-        </div>
-        <div className="footer-signature-row">
-          <SiteSignature />
         </div>
       </footer>
     </main>
